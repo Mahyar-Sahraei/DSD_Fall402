@@ -23,7 +23,7 @@ ARCHITECTURE asynch_read OF sram IS
 	-- SIGNALS
 	SIGNAL mem: mem1024x8_t;
 BEGIN
-	PROCESS(din, addr)
+	PROCESS(CLK, wr)
 	BEGIN
 		-- SYNCHRONOUS WRITE
 		IF CLK'Event AND CLK = '1' AND wr = '1' THEN
