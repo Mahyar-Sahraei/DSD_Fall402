@@ -23,18 +23,15 @@ ARCHITECTURE asynch_read OF sram IS
 	-- SIGNALS
 	SIGNAL mem: mem1024x8_t;
 BEGIN
-	PROCESS(CLK, wr)
+	PROCESS(CLK)
 	BEGIN
 		-- SYNCHRONOUS WRITE
-		IF CLK'Event AND CLK = '1' AND wr = '1' THEN
+		IF CLK = '1' AND wr = '1' THEN
 			mem(to_integer(unsigned(addr))) <= din;
 		END IF;
-		
-		-- ASYNCHRONOUS READ
-		IF wr = '1' THEN
-			dout <= mem(to_integer(unsigned(addr)));
-		END IF;
 	END PROCESS;
+	-- ASYNCHRONOUS READ
+	dout <= mem(to_integer(unsigned(addr)));
 END asynch_read;
 
 
