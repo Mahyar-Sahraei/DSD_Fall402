@@ -48,9 +48,9 @@ BEGIN
 		IF CLK = '1' AND wr = '1' THEN
 			mem(to_integer(unsigned(addr))) <= din;
 		END IF;
-		
+			
 		-- SYNCHRONOUS READ
-		IF CLK = '1' AND wr = '1' THEN
+		IF CLK = '1' THEN
 			dout <= mem(to_integer(unsigned(addr)));
 		END IF;
 	END PROCESS;
