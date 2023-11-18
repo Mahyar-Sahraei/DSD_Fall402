@@ -41,7 +41,7 @@ begin
 
     -- Output signals
     -- this need to be written:
-    EQ <= '1' when EQ_temp  else '0';
+    EQ <= '1' when EQ_temp = (others => '1') else '0';
     GT <= '1' when GT_temp( else '0';
     LT <= '1' when LT_temp( else '0';
 
