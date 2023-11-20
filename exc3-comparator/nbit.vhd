@@ -24,6 +24,7 @@ architecture Behavioral of NBitComparator is
 
     signal EQs, GTs, LTs : std_logic_vector(N-1 downto 0);
     signal EQ_temp, GT_temp, LT_temp : std_logic_vector(N-1 downto 0);
+    signal GT_int,LT_int : integer;
 
 begin
 
@@ -42,7 +43,11 @@ begin
     -- Output signals
     -- this need to be written:
     EQ <= '1' when EQ_temp = (others => '1') else '0';
-    GT <= '1' when GT_temp( else '0';
-    LT <= '1' when LT_temp( else '0';
+    GT_int <= to_integer(unsigned(GT_temp))
+    LT_int <= to_integer(unsigned(LT_temp))
+    
+    GT <= '1' when GT_int > LT_int
+    LT <= '1' when GT_int < LT_int
+
 
 end Behavioral;
