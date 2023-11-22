@@ -1,0 +1,89 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/modeltech64_10.6d/examples/riscvsingle
+Ecomparator_tb
+w1700470929
+Z0 d//VBOXSVR/University/DSD_Fall402/exc3-comparator
+8//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit_tb.vhd
+F//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit_tb.vhd
+l0
+L1
+V]^fY[G5VJ:^4f@MM=MVl51
+!s100 R[BHY=F7ZlT_7cPnoFI?Z3
+Z1 OL;C;10.6d;65
+32
+Z2 !s110 1700660031
+!i10b 1
+Z3 !s108 1700660031.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit_tb.vhd|
+!s107 //VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit_tb.vhd|
+!i113 0
+Z4 o-work work -2002 -explicit
+Z5 tExplicit 1 CvgOpt 0
+Enbitcomparator
+w1700660024
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+8//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd
+F//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd
+l0
+L4
+VE?LGE[mPO::A:f5XO0m0z1
+!s100 gcgFHaoW^S1N0<3d2;eY41
+R1
+32
+R2
+!i10b 1
+R3
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd|
+!s107 //VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd|
+!i113 0
+R4
+R5
+Eonebitcomparator
+Z8 w1700658764
+R6
+R7
+R0
+Z9 8//VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd
+Z10 F//VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd
+l0
+L4
+V:KbJ_mOdUEP<h4?UBQSM?1
+!s100 BO=k@aNIic>9X6oNOb]ZP2
+R1
+32
+R2
+!i10b 1
+R3
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd|
+Z12 !s107 //VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd|
+!i113 0
+R4
+R5
+Abehavioral
+R6
+R7
+DEx4 work 16 onebitcomparator 0 22 :KbJ_mOdUEP<h4?UBQSM?1
+l13
+L12
+VnLYf:@BkU6b5]@zC32Rni2
+!s100 ;MFTVB98aP?B@4>PVoI=P3
+R1
+32
+R2
+!i10b 1
+R3
+R11
+R12
+!i113 0
+R4
+R5

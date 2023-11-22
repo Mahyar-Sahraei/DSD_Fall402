@@ -11,11 +11,12 @@ end oneBitComparator;
 
 architecture behavioral of oneBitComparator is
 begin
-    --process(CLK)
-    --begin
-      EQ <= '1' when A = B else '0';
+    process(CLK)
+    begin
+      EQ <= '1' when A = B,
+	    '0' when OTHERS;
       GT <= '1' when A > B else '0';
       LT <= '1' when A < B else '0';
-    --end process;
+    end process;
 
 end behavioral;

@@ -39,8 +39,10 @@ begin
     end generate BitComp;
 
     -- Output signals
-	
-    EQ <= '1' when EQ_temp = (others => '1') else '0';
+    LOOP_EQ: FOR i IN N-1 TO 0 GENERATE
+    	EQ <= '1' when EQ_temp = (others => '1') else '0';
+	exit
+    END GENERATE LOOP_EQ
 
     Loop_GT: FOR i IN N-1 TO 0 GENERATE
               GT <= '1' when GT_temp(i) = '1' 
