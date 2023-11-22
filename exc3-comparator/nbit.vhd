@@ -22,9 +22,7 @@ architecture Behavioral of NBitComparator is
         );
     end component;
 
-    signal EQs, GTs, LTs : std_logic_vector(N-1 downto 0);
     signal EQ_temp, GT_temp, LT_temp : std_logic_vector(N-1 downto 0);
-    signal GT_int,LT_int : integer;
 
 begin
 
@@ -41,13 +39,23 @@ begin
     end generate BitComp;
 
     -- Output signals
-    -- this need to be written:
     EQ <= '1' when EQ_temp = (others => '1') else '0';
-    GT_int <= to_integer(unsigned(GT_temp))
-    LT_int <= to_integer(unsigned(LT_temp))
-    
-    GT <= '1' when GT_int > LT_int
-    LT <= '1' when GT_int < LT_int
 
+    Loop_GT: FOR i IN N-1 TO 0 GENERATE
+              GT <= '1' when GT_temp(i) = '1' 
+        else  GT <= '0' when LT_temp(i) = '1'
+        else  GT <= '0' when i=0 
+        else next Loop_GT;
+        exit when GT = '1' or GT = '0';
+	END GENERATE Loop_GT;
 
+    Loop_LT: FOR i IN N-1 TO 0 GENERATE
+              LT <= '1' when LT_temp(i) = '1' 
+        else  LT <= '0' when GT_temp(i) = '1'
+        else  LT <= '0' when i=0 
+        else next Loop_LT;
+        exit when LT = '1' or LT = '0';
+	END GENERATE Loop_LT;
+
+            
 end Behavioral;
