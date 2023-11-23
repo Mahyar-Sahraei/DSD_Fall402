@@ -25,7 +25,11 @@ begin
     stim_proc: process
     begin
         -- Testcase for N-bit comparison
-        
+        A <= "11111111";
+        B <= "00000000";
+        wait for 10 ns;
+        assert GT = '1' and LT = '0' and EQ = '0'
+            report "N-bit comparison test failed for A > B" severity error;
     A <= "11111111";
     B <= "00000000";
     wait for 10 ns;

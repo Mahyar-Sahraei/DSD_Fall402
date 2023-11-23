@@ -1,0 +1,17 @@
+//VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/University/DSD_Fall402/exc3-comparator/1bit.vhd
+Model Technology ModelSim SE-64 vcom 10.6d Compiler 2018.02 Feb 24 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity oneBitComparator
+-- Compiling architecture behavioral of oneBitComparator
+
+} {} {}} //VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/University/DSD_Fall402/exc3-comparator/nbit.vhd
+Model Technology ModelSim SE-64 vcom 10.6d Compiler 2018.02 Feb 24 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity NBitComparator
+-- Compiling architecture Behavioral of NBitComparator
+
+} {} {}}
