@@ -1,1 +1,5 @@
 **.zip
+
+#exclude everything except .vhd files
+*/*
+!*/*.vhd
