@@ -20,13 +20,17 @@ BEGIN
 END generic_arch;
 
 ARCHITECTURE sequential_arch OF full_adder IS
-	SIGNAL carry: std_logic := '0';
-	SIGNAL processing: std_logic := '0';
+	SIGNAL carry, processing: std_logic := '0';
 	SIGNAL cycle: integer := 0;
 BEGIN 
 	PROCESS(clk)
 	BEGIN
-		IF (start = '1' OR processing = '1') AND (clk = '1') THEN
+		IF nrst = '0' THEN
+			carry <= '0';
+			cycle <= 0;
+			processing <= '0';
+			Sum <= (OTHERS => '0');
+		ELSIF (start = '1' OR processing = '1') AND (clk = '1') THEN
 			processing <= '1';
 			done <= '0';
 			Sum(cycle) <= A XOR B XOR carry;
