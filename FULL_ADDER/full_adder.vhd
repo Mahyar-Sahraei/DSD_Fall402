@@ -9,15 +9,10 @@ ENTITY full_adder IS
 		start, A, B, clk, nrst: IN std_logic;
 
 		-- OUTPUT PORTS
-		cout, done: OUT std_logic;
+		cout, done: OUT std_logic := '0';
 		Sum: OUT std_logic_vector(n - 1 DOWNTO 0)
 	);
 END full_adder;
-
-ARCHITECTURE generic_arch OF full_adder IS
-BEGIN
-
-END generic_arch;
 
 ARCHITECTURE sequential_arch OF full_adder IS
 	SIGNAL carry, processing: std_logic := '0';
