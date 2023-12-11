@@ -46,7 +46,6 @@ BEGIN
 	
 	recv_cobmbinational: PROCESS(cur_recv_state, data_out_reg, clk, rx)
 	BEGIN
-		nxt_recv_state <= cur_recv_state;
 		strobe <= '0';
 
 		CASE cur_recv_state IS

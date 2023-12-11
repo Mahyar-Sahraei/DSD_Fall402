@@ -33,7 +33,7 @@ PACKAGE BODY uart_test IS
         FILE_OPEN(fp, "test.txt", READ_MODE);
 
         -- Ignoring two lines
-        FOR i IN 0 TO 2 * n_columns - 1 LOOP
+        FOR i IN 0 TO 33 LOOP
             READ(fp, c);
         END LOOP;
 

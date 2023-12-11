@@ -15,7 +15,7 @@ BEGIN
 	data_in  => t_data_in,
 	rx  => t_rx,
 	clk => t_clk,
-	nreset => t_nreset
+	nreset => t_nrese
     );
     test_from_file(half_period, t_start, t_data_in, t_rx, t_clk, t_nreset);
     
