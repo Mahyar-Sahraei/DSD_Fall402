@@ -6,12 +6,12 @@ USE work.uart_test.ALL;
 ENTITY uart_tb IS END uart_tb;
 
 ARCHITECTURE uart_tb_arch OF uart_tb IS
-    SIGNAL t_start, t_rx, t_clk, t_nreset: std_logic;
-    SIGNAL t_data_in: std_logic_vector(7 DOWNTO 0);
+    SIGNAL t_start, t_rx, t_clk, t_nreset, t_strobe, t_tx: std_logic;
+    SIGNAL t_data_in, t_data_out: std_logic_vector(7 DOWNTO 0);
     SIGNAL half_period: time := 5 ns;
 BEGIN
     DUT: ENTITY work.uart(behavioural) PORT MAP(
-        t_start, t_data_in, t_rx, t_clk, t_nreset
+        t_start, t_data_in, t_rx, t_clk, t_nreset, t_strobe, t_data_out, t_tx
     );
     test_from_file(half_period, t_start, t_data_in, t_rx, t_clk, t_nreset);
     
