@@ -1002,3 +1002,5 @@ vsim -voptargs=+acc work.uart_tb -novopt
 # Loading work.uart(behavioral)
 add wave -position insertpoint sim:/uart_tb/DUT/*
 run
+# End time: 07:46:55 on Dec 22,2023, Elapsed time: 0:09:20
+# Errors: 0, Warnings: 1

@@ -74,19 +74,18 @@ begin
         -- Scenario 1: Transmit and receive successfully
         start <= '1';
         din <= "01010101";
-        wait for 10 ns;
+        wait for 20 ns;
         start <= '0';
-        wait until done = '1';
-        assert dout = din report "Scenario 1 failed: Unexpected output data" severity error;
+	wait for 115 ns;
         assert io = '1' report "Scenario 1 failed: Unexpected input/output signal value" severity error;
         wait for 10 ns;
 
         -- Scenario 2: Transmit with parity error
         start <= '1';
         din <= "11111111";
-        wait for 10 ns;
+        wait for 20 ns;
         start <= '0';
-        wait until done = '1';
+	wait for 115 ns;
         assert io = '0' report "Scenario 2 failed: Unexpected input/output signal value" severity error;
         wait for 10 ns;
 

@@ -46,7 +46,6 @@ begin
             internal_io <= '0';
             received_parity <= '0';
             received_data <= (others => '0');
-            io <= '0';
             done <= '0';
         elsif (rising_edge(clk)) then
             current_state <= next_state;
@@ -66,26 +65,32 @@ begin
                         when 0 =>
                             internal_io <= '0'; -- Start bit
                             bit_counter <= bit_counter + 1;
+                            next_state <= TRANSMIT;
                             
                         when 1 to DATA_WIDTH =>
                             internal_io <= din(bit_counter - 1); -- Data bits
                             bit_counter <= bit_counter + 1;
+                            next_state <= TRANSMIT;
                             
                         when DATA_WIDTH + 1 =>
                             parity_bit <= calculate_parity(din); -- Calculate and store parity bit
                             internal_io <= parity_bit;
                             bit_counter <= bit_counter + 1;
+                            next_state <= TRANSMIT;
                             
                         when DATA_WIDTH + 2 =>
                             internal_io <= '1'; -- Stop bit
                             bit_counter <= bit_counter + 1;
+                            next_state <= IDLE;
                             
                         when others =>
                             if (io = '1') then -- Transmission successful
+                                bit_counter <= 0;
                                 next_state <= IDLE;
                                 done <= '1';
                             else -- Transmission failed, retry
                                 next_state <= TRANSMIT;
+                                bit_counter <= 0;
                                 done <= '0';
                             end if;
                     end case;
@@ -95,10 +100,12 @@ begin
                         when 0 to DATA_WIDTH - 1 =>
                             received_data(bit_counter) <= io; -- Receive data bits
                             bit_counter <= bit_counter + 1;
+                            next_state <= RECEIVE;
                             
                         when DATA_WIDTH =>
                             received_parity <= io; -- Receive parity bit
                             bit_counter <= bit_counter + 1;
+                            next_state <= RECEIVE;
                             
                         when DATA_WIDTH + 1 =>
                             if (received_parity = calculate_parity(received_data)) then -- Parity check
@@ -107,6 +114,7 @@ begin
                                 internal_io <= '0';
                             end if;
                             bit_counter <= bit_counter + 1;
+                            next_state <= RECEIVE;
                             
                         when others =>
                             dout <= received_data; -- Output received data
@@ -115,9 +123,8 @@ begin
                     end case;
                     
             end case;
+		io <= internal_io;
         end if;
     end process;
 
-    -- Internal signal assignment
-    io <= internal_io;
 end architecture Behavioral;
