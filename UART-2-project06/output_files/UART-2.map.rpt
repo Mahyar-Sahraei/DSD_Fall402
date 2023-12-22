@@ -1,5 +1,5 @@
 Analysis & Synthesis report for UART-2
-Fri Dec 22 07:02:18 2023
+Fri Dec 22 07:25:18 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
 
 
@@ -10,7 +10,17 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |UART|next_state
+  9. State Machine - |UART|current_state
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |UART
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +44,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Dec 22 07:02:18 2023               ;
-; Quartus Prime Version       ; 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
-; Revision Name               ; UART-2                                          ;
-; Top-level Entity Name       ; UART-2                                          ;
-; Family                      ; Cyclone V                                       ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
-; Total registers             ; N/A until Partition Merge                       ;
-; Total pins                  ; N/A until Partition Merge                       ;
-; Total virtual pins          ; N/A until Partition Merge                       ;
-; Total block memory bits     ; N/A until Partition Merge                       ;
-; Total PLLs                  ; N/A until Partition Merge                       ;
-; Total DLLs                  ; N/A until Partition Merge                       ;
-+-----------------------------+-------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Dec 22 07:25:18 2023           ;
+; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
+; Revision Name                   ; UART-2                                          ;
+; Top-level Entity Name           ; UART                                            ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 30                                              ;
+; Total pins                      ; 21                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0                                               ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -58,7 +73,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; UART-2             ; UART-2             ;
+; Top-level entity name                                                           ; UART               ; UART-2             ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Type of Retiming Performed During Resynthesis                                   ; Full               ;                    ;
 ; Resynthesis Optimization Effort                                                 ; Normal             ;                    ;
@@ -152,11 +167,152 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path                           ; Used in Netlist ; File Type       ; File Name with Absolute Path                               ; Library ;
++------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+; //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd ; yes             ; User VHDL File  ; //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd ;         ;
++------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 24        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 38        ;
+;     -- 7 input functions                    ; 3         ;
+;     -- 6 input functions                    ; 3         ;
+;     -- 5 input functions                    ; 15        ;
+;     -- 4 input functions                    ; 7         ;
+;     -- <=3 input functions                  ; 10        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 30        ;
+;                                             ;           ;
+; I/O pins                                    ; 21        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 30        ;
+; Total fan-out                               ; 296       ;
+; Average fan-out                             ; 2.67      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |UART                      ; 38 (38)             ; 30 (30)                   ; 0                 ; 0          ; 21   ; 0            ; |UART               ; UART        ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------+
+; State Machine - |UART|next_state                                                 ;
++---------------------+--------------------+---------------------+-----------------+
+; Name                ; next_state.RECEIVE ; next_state.TRANSMIT ; next_state.IDLE ;
++---------------------+--------------------+---------------------+-----------------+
+; next_state.IDLE     ; 0                  ; 0                   ; 0               ;
+; next_state.TRANSMIT ; 0                  ; 1                   ; 1               ;
+; next_state.RECEIVE  ; 1                  ; 0                   ; 1               ;
++---------------------+--------------------+---------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------+
+; State Machine - |UART|current_state                                                          ;
++------------------------+-----------------------+------------------------+--------------------+
+; Name                   ; current_state.RECEIVE ; current_state.TRANSMIT ; current_state.IDLE ;
++------------------------+-----------------------+------------------------+--------------------+
+; current_state.IDLE     ; 0                     ; 0                      ; 0                  ;
+; current_state.TRANSMIT ; 0                     ; 1                      ; 1                  ;
+; current_state.RECEIVE  ; 1                     ; 0                      ; 1                  ;
++------------------------+-----------------------+------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 30    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 18    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |UART|bit_counter[2]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |UART ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; DATA_WIDTH     ; 8     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 30                          ;
+;     CLR               ; 13                          ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 5                           ;
+;     plain             ; 1                           ;
+; arriav_io_obuf        ; 1                           ;
+; arriav_lcell_comb     ; 38                          ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 35                          ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 7                           ;
+;         5 data inputs ; 15                          ;
+;         6 data inputs ; 3                           ;
+; boundary_port         ; 21                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.86                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -165,22 +321,35 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
-    Info: Processing started: Fri Dec 22 07:02:09 2023
+    Info: Processing started: Fri Dec 22 07:25:07 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART-2 -c UART-2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Error (10500): VHDL syntax error at UART-2.vhd(111) near text "function";  expecting "end", or "(", or an identifier ("function" is a reserved keyword), or a concurrent statement File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 111
-Error (10500): VHDL syntax error at UART-2.vhd(111) near text ":";  expecting ")", or "," File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 111
-Error (10500): VHDL syntax error at UART-2.vhd(112) near text ":=";  expecting ";", or "port", or "generic" File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 112
-Error (10500): VHDL syntax error at UART-2.vhd(114) near text "loop";  expecting "(", or "'", or "." File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 114
-Error (10500): VHDL syntax error at UART-2.vhd(116) near text "loop";  expecting ";", or an identifier ("loop" is a reserved keyword), or "architecture" File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 116
-Error (10500): VHDL syntax error at UART-2.vhd(118) near text "function";  expecting ";", or an identifier ("function" is a reserved keyword), or "architecture" File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-2.vhd Line: 118
-Info (12021): Found 0 design units, including 0 entities, in source file uart-2.vhd
-Info (12021): Found 0 design units, including 0 entities, in source file uart-2-tb.vhd
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 6 errors, 1 warning
-    Error: Peak virtual memory: 727 megabytes
-    Error: Processing ended: Fri Dec 22 07:02:18 2023
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:22
+Info (12021): Found 2 design units, including 1 entities, in source file uart-tb.vhd
+    Info (12022): Found design unit 1: UART_TB-Behavioral File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-tb.vhd Line: 7
+    Info (12023): Found entity 1: UART_TB File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART-tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file uart.vhd
+    Info (12022): Found design unit 1: UART-Behavioral File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART.vhd Line: 20
+    Info (12023): Found entity 1: UART File: //vboxsvr/University/DSD_Fall402/UART-2-project06/UART.vhd Line: 5
+Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
+Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
+Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+Info (12127): Elaborating entity "UART" for the top level hierarchy
+Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
+Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
+Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 70 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 49 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 796 megabytes
+    Info: Processing ended: Fri Dec 22 07:25:18 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:24
 
 

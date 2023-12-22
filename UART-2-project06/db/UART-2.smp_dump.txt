@@ -1,0 +1,12 @@
+
+State Machine - |UART|next_state
+Name next_state.RECEIVE next_state.TRANSMIT next_state.IDLE 
+next_state.IDLE 0 0 0 
+next_state.TRANSMIT 0 1 1 
+next_state.RECEIVE 1 0 1 
+
+State Machine - |UART|current_state
+Name current_state.RECEIVE current_state.TRANSMIT current_state.IDLE 
+current_state.IDLE 0 0 0 
+current_state.TRANSMIT 0 1 1 
+current_state.RECEIVE 1 0 1 

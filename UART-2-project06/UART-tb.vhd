@@ -1,0 +1,112 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity UART_TB is
+end entity UART_TB;
+
+architecture Behavioral of UART_TB is
+    -- Constants
+    constant DATA_WIDTH: integer := 8;
+    constant CLK_PERIOD: time := 10 ns;
+    
+    -- Signals
+    signal start: std_logic := '0';
+    signal din: std_logic_vector(DATA_WIDTH - 1 downto 0) := (others => '0');
+    signal clk: std_logic := '0';
+    signal rst: std_logic := '1';
+    signal io: std_logic;
+    signal dout: std_logic_vector(DATA_WIDTH - 1 downto 0);
+    signal done: std_logic;
+    
+    -- UART instance
+    component UART is
+        generic (
+            DATA_WIDTH: integer := 8
+        );
+        port (
+            start: in std_logic;
+            din: in std_logic_vector(DATA_WIDTH - 1 downto 0);
+            clk: in std_logic;
+            rst: in std_logic;
+            io: inout std_logic;
+            dout: out std_logic_vector(DATA_WIDTH - 1 downto 0);
+            done: out std_logic
+        );
+    end component UART;
+    
+begin
+    -- UART DUT instantiation
+    DUT: UART
+        generic map (
+            DATA_WIDTH => DATA_WIDTH
+        )
+        port map (
+            start => start,
+            din => din,
+            clk => clk,
+            rst => rst,
+            io => io,
+            dout => dout,
+            done => done
+        );
+
+    -- Clock process
+    process
+    begin
+        while now < 1000 ns loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+        wait;
+    end process;
+
+    -- Stimulus process
+    process
+    begin
+        -- Reset
+        rst <= '1';
+        wait for 20 ns;
+        rst <= '0';
+        wait for 10 ns;
+
+        -- Scenario 1: Transmit and receive successfully
+        start <= '1';
+        din <= "01010101";
+        wait for 10 ns;
+        start <= '0';
+        wait until done = '1';
+        assert dout = din report "Scenario 1 failed: Unexpected output data" severity error;
+        assert io = '1' report "Scenario 1 failed: Unexpected input/output signal value" severity error;
+        wait for 10 ns;
+
+        -- Scenario 2: Transmit with parity error
+        start <= '1';
+        din <= "11111111";
+        wait for 10 ns;
+        start <= '0';
+        wait until done = '1';
+        assert io = '0' report "Scenario 2 failed: Unexpected input/output signal value" severity error;
+        wait for 10 ns;
+
+        -- Scenario 3: Receive with parity error
+        start <= '0';
+        io <= '0';
+        wait for 10 ns;
+        assert done = '1' report "Scenario 3 failed: Transmission not completed" severity error;
+        assert dout = "11111111" report "Scenario 3 failed: Unexpected output data" severity error;
+        wait for 10 ns;
+
+        -- Scenario 4: Idle state
+        start <= '0';
+        io <= '1';
+        wait for 10 ns;
+        assert done = '0' report "Scenario 4 failed: Unexpected done signal" severity error;
+        wait for 10 ns;
+
+        -- Add more test scenarios as needed...
+
+        wait;
+    end process;
+end architecture Behavioral;
