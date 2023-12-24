@@ -123,8 +123,15 @@ begin
                     end case;
                     
             end case;
-	io <= internal_io;
+		-- Internal signal assignment
+      		if (current_state /= TRANSMIT) then
+            	io <= internal_io;
+       		else
+	            io <= 'Z';
+        	end if;
         end if;
     end process;
 
+    -- Internal signal assignment
+--    io <= internal_io when current_state /= TRANSMIT else 'Z';
 end architecture Behavioral;
