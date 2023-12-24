@@ -76,6 +76,7 @@ begin
         din <= "01010101";
         wait for 20 ns;
         start <= '0';
+	io <= 'Z';
 	wait for 115 ns;
         assert io = '1' report "Scenario 1 failed: Unexpected input/output signal value" severity error;
         wait for 10 ns;
