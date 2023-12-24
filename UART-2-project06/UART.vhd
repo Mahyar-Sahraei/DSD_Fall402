@@ -100,7 +100,7 @@ begin
 
                 when DATA_WIDTH + 2 =>
                     internal_io <= '1'; -- Stop bit
-                    count_en <= '0';
+                    count_en <= '1';
             	    count_rst <= '0';
                     next_state <= IDLE;
 
@@ -123,11 +123,13 @@ begin
                 when 0 to DATA_WIDTH - 1 =>
                     received_data(bit_counter) <= io; -- Receive data bits
                     count_en <= '1';
+                    count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when DATA_WIDTH =>
                     received_parity <= io; -- Receive parity bit
                     count_en <= '1';
+                    count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when DATA_WIDTH + 1 =>
@@ -137,6 +139,7 @@ begin
                         internal_io <= '0';
                     end if;
                     count_en <= '1';
+                    count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when others =>

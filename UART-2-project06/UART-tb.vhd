@@ -79,11 +79,11 @@ begin
 	io <= 'Z';
 	wait for 115 ns;
         assert io = '1' report "Scenario 1 failed: Unexpected input/output signal value" severity error;
-        wait for 10 ns;
+        wait for 40 ns;
 
         -- Scenario 2: Transmit with parity error
         start <= '1';
-        din <= "11111111";
+        din <= "10111011";
         wait for 20 ns;
         start <= '0';
 	wait for 115 ns;
