@@ -91,15 +91,29 @@ begin
 	io <= '0';
 	wait for 10 ns; 
 	io <= 'Z';
-        wait for 95 ns;
+        wait for 115 ns;
 	io <= '1';
+	wait for 10 ns;
+	io <= 'Z';
+	wait for 20 ns;
 
         -- Scenario 3: Receive with parity error
         start <= '0';
         io <= '0';
         wait for 10 ns;
-        assert done = '1' report "Scenario 3 failed: Transmission not completed" severity error;
-        assert dout = "11111111" report "Scenario 3 failed: Unexpected output data" severity error;
+        io <= '1';
+        wait for 10 ns;
+        io <= '0';
+        wait for 10 ns;
+        io <= '0';
+        wait for 10 ns;
+        io <= '1';
+        wait for 10 ns;
+        io <= '1';
+        wait for 10 ns;
+        io <= '1';
+        wait for 10 ns;
+        io <= '0';
         wait for 10 ns;
 
         -- Scenario 4: Idle state

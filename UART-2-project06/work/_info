@@ -22,9 +22,9 @@ VfA60lB:W=_VSG3jGa?3eC0
 !s100 Rf3_jk>Di41oQEAW@H@?X2
 Z7 OL;C;10.6d;65
 32
-Z8 !s110 1703524101
+Z8 !s110 1703525130
 !i10b 1
-Z9 !s108 1703524101.000000
+Z9 !s108 1703525130.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 Z11 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 !i113 0
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Euart_tb
-Z14 w1703524094
+Z14 w1703525126
 R2
 R3
 R4
@@ -62,11 +62,11 @@ V2i]@_lT>oR4`:590hlbUF0
 !s100 b[o[a@R2KYRzS=T`CcX_d3
 R7
 32
-Z17 !s110 1703524102
+R8
 !i10b 1
 R9
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
-Z19 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+Z18 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
 !i113 0
 R12
 R13
@@ -75,16 +75,16 @@ R2
 R3
 DEx4 work 7 uart_tb 0 22 2i]@_lT>oR4`:590hlbUF0
 32
-R17
+R8
 l37
 L7
-VGhndc1KGo1GfLckoE@=lO1
-!s100 l?3Gk9?g;HD>k[217TV>G3
+VeB>DIDFP6JLhdAV8S=Oj40
+!s100 dG=jV[7CL5H`gj;dZc0i22
 R7
 !i10b 1
 R9
+R17
 R18
-R19
 !i113 0
 R12
 R13
