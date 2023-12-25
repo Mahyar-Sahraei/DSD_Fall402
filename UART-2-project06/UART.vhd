@@ -81,31 +81,33 @@ begin
         when TRANSMIT =>
             case bit_counter is
                 when 0 =>
-                    internal_io <= '0'; -- Start bit        
+                    --internal_io <= '0'; -- Start bit        
                     io <= '0'; -- Start bit        
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;
 
                 when 1 to DATA_WIDTH =>
-                    internal_io <= din(bit_counter - 1); -- Data bits
-                    io <= din(bit_counter - 1); -- Data bits
+                    --internal_io <= din(bit_counter - 1); -- Data bits
+                    io <= din(DATA_WIDTH - bit_counter); -- Data bits
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;
 
                 when DATA_WIDTH + 1 =>
                     parity_bit <= calculate_parity(din); -- Calculate and store parity bit
-                    internal_io <= parity_bit;
+                    --internal_io <= parity_bit;
+		    io <= parity_bit;
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;
 
                 when DATA_WIDTH + 2 =>
-                    internal_io <= '1'; -- Stop bit
+                    --internal_io <= '1'; -- Stop bit
+                    io <= '1'; -- Stop bit
                     count_en <= '1';
             	    count_rst <= '0';
-                    next_state <= IDLE;
+                    next_state <= TRANSMIT;
 
                 when others =>
                     internal_io <= 'Z';
