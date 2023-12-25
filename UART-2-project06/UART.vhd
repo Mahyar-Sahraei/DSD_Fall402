@@ -72,7 +72,8 @@ begin
             end if;
             count_rst <= '1';
             count_en <= '0';
-            internal_io <= '0';
+            internal_io <= 'Z';
+            io <= 'Z';
             received_parity <= '0';
             received_data <= (others => '0');
             done <= '0';
@@ -81,12 +82,14 @@ begin
             case bit_counter is
                 when 0 =>
                     internal_io <= '0'; -- Start bit        
+                    io <= '0'; -- Start bit        
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;
 
                 when 1 to DATA_WIDTH =>
                     internal_io <= din(bit_counter - 1); -- Data bits
+                    io <= din(bit_counter - 1); -- Data bits
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;
@@ -105,6 +108,7 @@ begin
                     next_state <= IDLE;
 
                 when others =>
+                    internal_io <= 'Z';
                     if (io = '1') then -- Transmission successful
                         count_en <= '0';
             	    	count_rst <= '1';
@@ -122,11 +126,13 @@ begin
             case bit_counter is
                 when 0 to DATA_WIDTH - 1 =>
                     received_data(bit_counter) <= io; -- Receive data bits
+                    internal_io <= 'Z';
                     count_en <= '1';
                     count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when DATA_WIDTH =>
+                    internal_io <= 'Z';
                     received_parity <= io; -- Receive parity bit
                     count_en <= '1';
                     count_rst <= '0';
@@ -144,6 +150,7 @@ begin
 
                 when others =>
                     dout <= received_data; -- Output received data
+                    internal_io <= 'Z';
                     count_rst <= '1';
                     count_en <= '0';
                     next_state <= IDLE;
@@ -152,9 +159,9 @@ begin
     end case;
     -- Internal signal assignment
 	--if (current_state /= TRANSMIT) then
-    	io <= internal_io;
 	--else
     --    io <= 'Z';
+	--io <= internal_io;
 	--end if;
     end process comb;
 

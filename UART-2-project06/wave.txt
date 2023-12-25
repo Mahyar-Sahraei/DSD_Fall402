@@ -1,0 +1,45 @@
+$date
+	Mon Dec 25 05:44:55 2023
+$end
+$version
+	ModelSim Version 10.6d
+$end
+$timescale
+	1ns
+$end
+$scope module uart_tb $end
+$scope module DUT $end
+$var wire 1 ! io $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+x!
+#50
+1!
+#65
+1!
+#85
+1!
+#105
+1!
+#125
+0!
+#145
+z!
+#225
+0!
+#235
+1!
+#255
+1!
+#295
+1!
+#315
+1!
+#335
+z!
+#350
+0!
+#370
+1!
