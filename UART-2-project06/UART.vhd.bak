@@ -107,7 +107,7 @@ begin
                     io <= '1'; -- Stop bit
                     count_en <= '1';
             	    count_rst <= '0';
-                    next_state <= IDLE;
+                    next_state <= TRANSMIT;
 
                 when others =>
                     internal_io <= 'Z';

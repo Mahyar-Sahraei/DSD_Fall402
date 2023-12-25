@@ -104,7 +104,7 @@ begin
 
                 when DATA_WIDTH + 2 =>
                     --internal_io <= '1'; -- Stop bit
-                    io <= '1'; -- Stop bit
+                    io <= 'Z'; -- Stop bit
                     count_en <= '1';
             	    count_rst <= '0';
                     next_state <= TRANSMIT;

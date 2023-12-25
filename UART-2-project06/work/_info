@@ -9,7 +9,7 @@ z2
 cModel Technology
 d//VBOXSVR/University/DSD_Fall402/UART
 Euart
-Z0 w1703521458
+Z0 w1703522913
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ VfA60lB:W=_VSG3jGa?3eC0
 !s100 Rf3_jk>Di41oQEAW@H@?X2
 Z7 OL;C;10.6d;65
 32
-Z8 !s110 1703521515
+Z8 !s110 1703523075
 !i10b 1
-Z9 !s108 1703521515.000000
+Z9 !s108 1703523075.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 Z11 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 !i113 0
@@ -39,8 +39,8 @@ DEx4 work 4 uart 0 22 fA60lB:W=_VSG3jGa?3eC0
 R8
 l42
 L20
-V0Qz51EdoE43z1oj^;QNXS3
-!s100 fce4haK3R:C@:n7GaJD4U0
+VmTXK>8:EJkG_]Vme]:FK@1
+!s100 l3@K_5@Q>?W:6d3iFX0GV3
 R7
 !i10b 1
 R9
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Euart_tb
-Z14 w1703521513
+Z14 w1703523070
 R2
 R3
 R4
@@ -62,11 +62,11 @@ V2i]@_lT>oR4`:590hlbUF0
 !s100 b[o[a@R2KYRzS=T`CcX_d3
 R7
 32
-Z17 !s110 1703521516
+R8
 !i10b 1
 R9
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
-Z19 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+Z18 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
 !i113 0
 R12
 R13
@@ -75,16 +75,16 @@ R2
 R3
 DEx4 work 7 uart_tb 0 22 2i]@_lT>oR4`:590hlbUF0
 32
-R17
+R8
 l37
 L7
-VH^k`fDPk_fFkX<J3zdPoF0
-!s100 4k3=j1XQJJR7N<D8lTTE91
+V]FIlV75FPlAEIKFkf52Y_2
+!s100 5Dja@Sil`jZ_DS^MQ;^bT3
 R7
 !i10b 1
 R9
+R17
 R18
-R19
 !i113 0
 R12
 R13

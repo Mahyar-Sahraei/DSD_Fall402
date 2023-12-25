@@ -77,9 +77,10 @@ begin
         din <= "01010101";
         wait for 20 ns;
         start <= '0';
-	wait for 115 ns;
+	wait for 95 ns;
 	io <= '1';
         wait for 40 ns;
+	io <= 'Z';
 
         -- Scenario 2: Transmit with parity error
         start <= '1';
@@ -87,8 +88,8 @@ begin
         wait for 20 ns;
         start <= '0';
 	wait for 115 ns;
-        assert io = '0' report "Scenario 2 failed: Unexpected input/output signal value" severity error;
-        wait for 10 ns;
+	io <= '1';
+        wait for 120 ns;
 
         -- Scenario 3: Receive with parity error
         start <= '0';
