@@ -87,9 +87,12 @@ begin
         din <= "10111011";
         wait for 20 ns;
         start <= '0';
-	wait for 115 ns;
+	wait for 100 ns;
+	io <= '0';
+	wait for 5 ns; 
+	io <= 'Z';
+        wait for 95 ns;
 	io <= '1';
-        wait for 120 ns;
 
         -- Scenario 3: Receive with parity error
         start <= '0';
