@@ -1,16 +1,9 @@
-//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd
+//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd
 Model Technology ModelSim SE-64 vcom 10.6d Compiler 2018.02 Feb 24 2018
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity UART
--- Compiling architecture Behavioral of UART
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(90): (vcom-1937) Choice in CASE statement alternative must be locally static.
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(97): (vcom-1937) Choice in CASE statement alternative must be locally static.
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(105): (vcom-1937) Choice in CASE statement alternative must be locally static.
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(129): (vcom-1937) Choice in CASE statement alternative must be locally static.
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(136): (vcom-1937) Choice in CASE statement alternative must be locally static.
-** Warning: //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd(143): (vcom-1937) Choice in CASE statement alternative must be locally static.
+-- Compiling entity UART_TB
+-- Compiling architecture Behavioral of UART_TB
 
 } {} {}}

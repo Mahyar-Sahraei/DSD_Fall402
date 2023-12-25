@@ -65,13 +65,15 @@ begin
         when IDLE =>
             if (start = '1') then
                 next_state <= TRANSMIT;
+            	count_en <= '0';
             elsif (io = '0') then
                 next_state <= RECEIVE;
+            	count_en <= '1';
             else
                 next_state <= IDLE;
+            	count_en <= '0';
             end if;
             count_rst <= '1';
-            count_en <= '0';
             internal_io <= 'Z';
             io <= 'Z';
             received_parity <= '0';
@@ -127,7 +129,7 @@ begin
         when RECEIVE =>
             case bit_counter is
                 when 0 to DATA_WIDTH - 1 =>
-                    received_data(bit_counter) <= io; -- Receive data bits
+                    received_data(DATA_WIDTH - bit_counter) <= io; -- Receive data bits
                     internal_io <= 'Z';
                     count_en <= '1';
                     count_rst <= '0';
