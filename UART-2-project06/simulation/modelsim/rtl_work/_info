@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d//vboxsvr/University/DSD_Fall402/UART-2-project06/simulation/modelsim
+T_opt
+!s110 1703259162
+Vf?53[AZkT^6[JUnCMiEMV2
+04 7 10 work uart_tb behavioral 1
+=1-0800270a569f-6585ac1a-269-b14
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;10.6d;65
+R0
+Euart
+Z1 w1703258322
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd
+Z6 F//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd
+l0
+L5
+VE;E<kCSi^iN30hQ66@_9V1
+!s100 Rf3_jk>Di41oQEAW@H@?X2
+Z7 OL;C;10.6d;65
+32
+Z8 !s110 1703259156
+!i10b 1
+Z9 !s108 1703259156.000000
+Z10 !s90 -reportprogress|300|-work|work|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
+Z11 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 4 uart 0 22 E;E<kCSi^iN30hQ66@_9V1
+32
+R8
+l40
+L20
+VILZQ_EN8Amz?MEh;2_9m83
+!s100 4>klmi44GEF_gzQI3c[H93
+R7
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Euart_tb
+Z14 w1703258696
+R3
+R4
+R0
+Z15 8//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd
+Z16 F//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd
+l0
+L4
+V_EdNS8dR6DTaVC7`<0:1V2
+!s100 b[o[a@R2KYRzS=T`CcX_d3
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+Z18 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART-tb.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 7 uart_tb 0 22 _EdNS8dR6DTaVC7`<0:1V2
+32
+R8
+l37
+L7
+V_U322jC<aVgjF9;SdXl[;0
+!s100 85C<5S?g3g5f<Cz8K5oO43
+R7
+!i10b 1
+R9
+R17
+R18
+!i113 0
+R12
+R13

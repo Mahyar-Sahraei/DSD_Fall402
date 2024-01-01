@@ -1,0 +1,51 @@
+# Current time Mon Dec 11 01:16:20 2023
+# ModelSim SE Stack Trace
+# Program = vish
+# Id = "10.6d"
+# Version = "2018.02"
+# Date = "Feb 24 2018"
+# Platform = win64
+
+Exception c0000005 has occurred at address 403e4a4f. Traceback:
+# 0    0x403e4a4f: 'TPedit_Init + 0x436df'
+# 1    0x404437c8: 'TPedit_Init + 0xa2458'
+# 2    0x4044491e: 'TPedit_Init + 0xa35ae'
+# 3    0x40443a38: 'TPedit_Init + 0xa26c8'
+# 4    0x40441226: 'TPedit_Init + 0x9feb6'
+# 5    0x4031ff2f: 'Mtirpc_Init + 0x16ef5f'
+# 6    0x74da6234: 'TclInvokeStringCommand + 0x84'
+# 7    0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 8    0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 9    0xf1371f40: 'Itcl_ExecProc + 0x120'
+# 10   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 11   0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 12   0xf1371f40: 'Itcl_ExecProc + 0x120'
+# 13   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 14   0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 15   0xf1371dbb: 'Itcl_ExecMethod + 0x23b'
+# 16   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 17   0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 18   0xf1371dbb: 'Itcl_ExecMethod + 0x23b'
+# 19   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 20   0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 21   0xf1371dbb: 'Itcl_ExecMethod + 0x23b'
+# 22   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 23   0xf1370bfa: 'Itcl_EvalMemberCode + 0x3ba'
+# 24   0xf1371dbb: 'Itcl_ExecMethod + 0x23b'
+# 25   0xf1379879: 'Itcl_EvalArgs + 0x1c9'
+# 26   0xf1374b51: 'Itcl_HandleInstance + 0x2c1'
+# 27   0x74da6c03: 'TclNRRunCallbacks + 0x63'
+# 28   0x74e792e2: 'TclpRealloc + 0xa02'
+# 29   0x74e7a0fc: 'Tcl_DoWhenIdle + 0x22c'
+# 30   0x74e4d41c: 'Tcl_ServiceEvent + 0x9c'
+# 31   0x74e4d0b4: 'Tcl_DoOneEvent + 0x124'
+# 32   0x74f9aee5: 'Tk_MainLoop + 0x25'
+# 33   0x74fdd282: 'Tk_MainEx + 0x932'
+# 34   0x401d3280: 'Mtirpc_Init + 0x222b0'
+# 35   0x401d58b8: 'Mtirpc_Init + 0x248e8'
+# 36   0x405f02cf: 'Tclsqlite_Init + 0x1a5f'
+# 37   0x7731652d: 'BaseThreadInitThunk + 0xd'
+# 38   0x7744c521: 'RtlUserThreadStart + 0x21'
+StackWalk failed 0
+# End of Stack Trace
+
