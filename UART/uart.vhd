@@ -23,8 +23,6 @@ ARCHITECTURE behavioural OF uart IS
 	SIGNAL cur_recv_state, nxt_recv_state: state_t := S0;
 	SIGNAL cur_trsm_state, nxt_trsm_state: state_t := S0;
 	
-	SIGNAL data_out_reg: std_logic_vector(7 DOWNTO 0);
-	
 BEGIN
 	recv_sequential: PROCESS(clk, nreset)
 	BEGIN
@@ -44,73 +42,51 @@ BEGIN
 		END IF;
 	END PROCESS trsm_sequential;
 	
-	recv_cobmbinational: PROCESS(cur_recv_state, data_out_reg, clk, rx)
+	recv_cobmbinational: PROCESS(cur_recv_state, rx)
 	BEGIN
-		nxt_recv_state <= cur_recv_state;
 		strobe <= '0';
 
 		CASE cur_recv_state IS
 		WHEN S0 =>
-		  	IF rx = '0' THEN
-				nxt_recv_state <= S1;
-		  	END IF;
+			nxt_recv_state <= S1;
 		  
 		WHEN S1 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S2;
-		  	END IF;
+			data_out(0) <= rx;
+			nxt_recv_state <= S2;
 		  
 		WHEN S2 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S3;
-		  	END IF;
+			data_out(1) <= rx;
+			nxt_recv_state <= S3;
 		  
 		WHEN S3 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S4;
-		  	END IF;
+			data_out(2) <= rx;
+			nxt_recv_state <= S4;
 		  
 		WHEN S4 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S5;
-		  	END IF;
+			data_out(3) <= rx;
+			nxt_recv_state <= S5;
 		  
 		WHEN S5 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S6;
-		  	END IF;
+			data_out(4) <= rx;
+			nxt_recv_state <= S6;
 		  
 		WHEN S6 =>
-		  	IF rising_edge(clk) THEN
-				data_out_reg <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S7;
-		  	END IF;
+			data_out(5) <= rx;
+			nxt_recv_state <= S7;
 		  
 		WHEN S7 =>
-		  	IF rising_edge(clk) THEN
-				data_out <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= S8;
-		  	END IF;
+			data_out(6) <= rx;
+			nxt_recv_state <= S8;
 		  
 		WHEN S8 =>
-		  	IF rising_edge(clk) THEN
-				data_out <= rx & data_out_reg(6 DOWNTO 0);
-				nxt_recv_state <= SD;
-				strobe <= '1';
-		  	END IF;
+			data_out(7) <= rx;
+			nxt_recv_state <= SD;
+			strobe <= '1';
 
 		WHEN OTHERS => -- SD
-			strobe <= '1';
-			IF rising_edge(clk) THEN
-				nxt_recv_state <= S0;
-				data_out <= "00000000";
-				strobe <= '0';
-			END IF;
+			nxt_recv_state <= S0;
+			data_out <= "00000000";
+			strobe <= '0';
 
 		END CASE;
 
@@ -123,68 +99,46 @@ BEGIN
 
 		CASE cur_trsm_state IS
 		WHEN S0 =>
-			IF start = '1' AND rising_edge(clk) THEN
-				nxt_trsm_state <= SS;
-			END IF;
+			nxt_trsm_state <= SS;
 
 		WHEN SS =>
-			IF rising_edge(clk) THEN
-				tx <= '0';
-				nxt_trsm_state <= S1;
-			END IF;
+			tx <= '0';
+			nxt_trsm_state <= S1;
 		  
 		WHEN S1 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(0);
-				nxt_trsm_state <= S3;
-		  	END IF;
+			tx <= data_in(0);
+			nxt_trsm_state <= S2;
 		  
 		WHEN S2 =>
-			IF rising_edge(clk) THEN
-				tx <= data_in(1);
-				nxt_trsm_state <= S3;
-			END IF;
+			tx <= data_in(1);
+			nxt_trsm_state <= S3;
 		  
 		WHEN S3 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(2);
-				nxt_trsm_state <= S4;
-		  	END IF;
+			tx <= data_in(2);
+			nxt_trsm_state <= S4;
 		  
 		WHEN S4 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(3);
-				nxt_trsm_state <= S5;
-		  	END IF;
+			tx <= data_in(3);
+			nxt_trsm_state <= S5;
 		  
 		WHEN S5 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(4);
-				nxt_trsm_state <= S6;
-		  	END IF;
+			tx <= data_in(4);
+			nxt_trsm_state <= S6;
 		  
 		WHEN S6 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(5);
-				nxt_trsm_state <= S7;
-		  	END IF;
+			tx <= data_in(5);
+			nxt_trsm_state <= S7;
 		  
 		WHEN S7 =>
-		  	IF rising_edge(clk) THEN
-				tx <= data_in(6);
-				nxt_trsm_state <= S8;
-		  	END IF;
+			tx <= data_in(6);
+			nxt_trsm_state <= S8;
 			  
 		WHEN S8 =>
-			IF rising_edge(clk) THEN
-				tx <= data_in(7);
-				nxt_trsm_state <= SD;
-			END IF;
+			tx <= data_in(7);
+			nxt_trsm_state <= SD;
 
 		WHEN OTHERS => -- SD
-			IF rising_edge(clk) THEN
-				nxt_trsm_state <= S0;
-			END IF;
+			nxt_trsm_state <= S0;
 
 		END CASE;
 
