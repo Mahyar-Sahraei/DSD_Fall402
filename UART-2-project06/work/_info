@@ -9,7 +9,7 @@ z2
 cModel Technology
 d//VBOXSVR/University/DSD_Fall402/UART
 Euart
-Z0 w1703525431
+Z0 w1703526471
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ VfA60lB:W=_VSG3jGa?3eC0
 !s100 Rf3_jk>Di41oQEAW@H@?X2
 Z7 OL;C;10.6d;65
 32
-Z8 !s110 1703525437
+Z8 !s110 1703526483
 !i10b 1
-Z9 !s108 1703525437.000000
+Z9 !s108 1703526483.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|//VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 Z11 !s107 //VBOXSVR/University/DSD_Fall402/UART-2-project06/UART.vhd|
 !i113 0
@@ -39,8 +39,8 @@ DEx4 work 4 uart 0 22 fA60lB:W=_VSG3jGa?3eC0
 R8
 l42
 L20
-VBKF;7ADdb2Q4S8i<f7eN_2
-!s100 CGfAmaYmbedI_3ZW9BcME0
+VTDiQS`RaI2dEI@EW=o;D?2
+!s100 @aj]BU]<G]d1E[zf1z:m]2
 R7
 !i10b 1
 R9

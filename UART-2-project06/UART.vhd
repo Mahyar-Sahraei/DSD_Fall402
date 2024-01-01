@@ -68,7 +68,7 @@ begin
             	count_en <= '0';
             elsif (io = '0') then
                 next_state <= RECEIVE;
-            	count_en <= '1';
+            	count_en <= '0';
             else
                 next_state <= IDLE;
             	count_en <= '0';
@@ -129,7 +129,7 @@ begin
         when RECEIVE =>
             case bit_counter is
                 when 0 to DATA_WIDTH - 1 =>
-                    received_data(DATA_WIDTH - bit_counter) <= io; -- Receive data bits
+                    received_data(DATA_WIDTH - bit_counter - 1) <= io; -- Receive data bits
                     internal_io <= 'Z';
                     count_en <= '1';
                     count_rst <= '0';
