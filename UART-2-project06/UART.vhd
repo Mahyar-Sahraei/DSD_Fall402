@@ -55,7 +55,11 @@ begin
 	    else
 		bit_counter <= 0;
             end if;
-
+	    if (current_state /= TRANSMIT) then
+		internal_io <= io;
+	    else 
+		internal_io <= 'Z';
+	    end if;
         end if;
     end process seq;
 
@@ -129,7 +133,8 @@ begin
         when RECEIVE =>
             case bit_counter is
                 when 0 to DATA_WIDTH - 1 =>
-                    received_data(DATA_WIDTH - bit_counter - 1) <= io; -- Receive data bits
+                    --received_data(DATA_WIDTH - bit_counter - 1) <= io; -- Receive data bits
+		    received_data(DATA_WIDTH - bit_counter - 1) <= internal_io; -- Receive data bits
                     internal_io <= 'Z';
                     count_en <= '1';
                     count_rst <= '0';

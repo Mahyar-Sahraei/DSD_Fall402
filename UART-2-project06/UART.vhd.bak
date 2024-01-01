@@ -55,7 +55,11 @@ begin
 	    else
 		bit_counter <= 0;
             end if;
-
+	    if (current_state /= TRANSMIT) then
+		internal_io <= io;
+	    else 
+		internal_io <= 'Z';
+	    end if;
         end if;
     end process seq;
 
@@ -68,7 +72,7 @@ begin
             	count_en <= '0';
             elsif (io = '0') then
                 next_state <= RECEIVE;
-            	count_en <= '1';
+            	count_en <= '0';
             else
                 next_state <= IDLE;
             	count_en <= '0';
