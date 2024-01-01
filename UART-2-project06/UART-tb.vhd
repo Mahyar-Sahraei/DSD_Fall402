@@ -99,26 +99,32 @@ begin
 
         -- Scenario 3: Receive with parity error
         start <= '0';
+        io <= '0';	-- start
+        wait for 10 ns;
+        io <= '1';	-- data
+        wait for 10 ns;
         io <= '0';
+        wait for 10 ns;
+        io <= '0';
+        wait for 10 ns;
+        io <= '1';
+        wait for 10 ns;
+        io <= '1';
         wait for 10 ns;
         io <= '1';
         wait for 10 ns;
         io <= '0';
         wait for 10 ns;
-        io <= '0';
-        wait for 10 ns;
-        io <= '1';
-        wait for 10 ns;
-        io <= '1';
-        wait for 10 ns;
-        io <= '1';
-        wait for 10 ns;
-        io <= '0';
-        wait for 10 ns;
+	io <= '1';
+	wait for 10 ns;
+	--io <= '0';	-- wrong parity
+	io <= '1';	-- right parity
+	wait for 10 ns;
+	io <= 'Z';
 
         -- Scenario 4: Idle state
         start <= '0';
-        io <= '1';
+        io <= 'Z';
         wait for 10 ns;
         assert done = '0' report "Scenario 4 failed: Unexpected done signal" severity error;
         wait for 10 ns;

@@ -141,29 +141,30 @@ begin
                     next_state <= RECEIVE;
 
                 when DATA_WIDTH =>
-                    internal_io <= 'Z';
-                    received_parity <= io; -- Receive parity bit
+                    received_parity <= internal_io; -- Receive parity bit
                     count_en <= '1';
                     count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when DATA_WIDTH + 1 =>
-                    if (received_parity = calculate_parity(received_data)) then -- Parity check
-                        internal_io <= '1';
-                    else
-                        internal_io <= '0';
-                    end if;
+		    parity_bit <= calculate_parity(received_data);
                     count_en <= '1';
                     count_rst <= '0';
                     next_state <= RECEIVE;
 
                 when others =>
-                    dout <= received_data; -- Output received data
+		    if (received_parity = parity_bit) then -- Parity check
+                        internal_io <= '1';
+			dout <= received_data; -- Output received data
+                  	done <= '1';
+                    else
+                        internal_io <= '0';
+                    end if;
+                    
                     internal_io <= 'Z';
                     count_rst <= '1';
                     count_en <= '0';
                     next_state <= IDLE;
-                    done <= '1';
             end case;
     end case;
     -- Internal signal assignment
